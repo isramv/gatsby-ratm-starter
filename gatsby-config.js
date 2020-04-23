@@ -36,6 +36,7 @@ module.exports = {
         fieldName: "wpcontent",
         // Url to query from
         url: "https://dev-ratm.pantheonsite.io/graphql",
+        // url: "https://ratm.lndo.site/graphql",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
