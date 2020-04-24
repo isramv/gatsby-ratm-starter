@@ -13,12 +13,10 @@ const BlockIsra = ({props}) => {
         <>
             <h1>{props.__typename}</h1>
             <div dangerouslySetInnerHTML={{ __html: blockData}}/>
-            {/* If type hero    */}
             <div className="Hero">
                 <h2>{heroAttributes.heroTitle}</h2>
                 {(heroAttributes.ctaUrl) ?  heroAttributes.ctaUrl : null }
             </div>
-
         </>
     )
 }
