@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Container, Image } from 'semantic-ui-react'
-import lazy from '../../styles/lazy/lazy.scss'
+import '../../styles/lazy/lazy.scss'
 
 export default ({block}) => {
   const data = block.attributes
