@@ -1,22 +1,20 @@
-import React from "react"
+import React, { Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
+import Layout from '../components/layout'
+import LazyComponent from '../components/lazy/Lazy'
 
-const BlockIsra = ({props}) => {
-    const blockData = props.originalContent;
-    let heroAttributes = {}
+const LazyBlocks = ({blocks}) => {
 
-    if (props.__typename === 'LazyblockHeroBlock') {
-        heroAttributes = props.attributes;
-    }
+    // const renderBlocks = blocks.map( block => {
+    //   const name = block.__typename
+    //   (<LazyComponent tag={name}/>)
+    // })
     
     return(
         <>
-            <h1>{props.__typename}</h1>
-            <div dangerouslySetInnerHTML={{ __html: blockData}}/>
-            <div className="Hero">
-                <h2>{heroAttributes.heroTitle}</h2>
-                {(heroAttributes.ctaUrl) ?  heroAttributes.ctaUrl : null }
-            </div>
+          {blocks.map( (block, index) => {
+            return (<LazyComponent component={block.__typename}/>)
+          })}
         </>
     )
 }
@@ -24,14 +22,9 @@ const BlockIsra = ({props}) => {
 const ComponentTest = ({data}) => {
     const blocks = JSON.parse(data.wpcontent.page.blocksJSON)
     
-    return (<div>
-        <h1>Hello Friend</h1>
-        <ul>
-            {blocks.map((block, i) => {
-                return (<BlockIsra key={i} props={block}/>)
-            })}
-        </ul>
-    </div>)
+    return (<Layout>
+        <LazyBlocks blocks={blocks}/>
+    </Layout>)
 }
 
 const ComponentName = () => (
@@ -48,9 +41,10 @@ const ComponentName = () => (
       }
     `}
     render={data =>
-        <pre>
+        <>
             <ComponentTest data={data}/>
-        </pre>}
+        </>
+    }
     />
 );
 
