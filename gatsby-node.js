@@ -22,7 +22,7 @@ exports.createPages = async ({actions, graphql}) => {
     pages.forEach(page => {
         actions.createPage({
             path: page.uri,
-            component: require.resolve('./src/templates/page-template.js'),
+            component: require.resolve('./src/templates/ratm-page-template.js'),
             context: {
                 id: page.id
             }
