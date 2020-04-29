@@ -11,7 +11,7 @@ export default ({block}) => {
   return (
       <Container>
         <div className="custom-hero">
-          <Image src={image.url} alt={image.alt} size='large' fluid className='custom-hero__image'/>
+          <Image src={image.url} alt={image.alt} size='large' className='custom-hero__image'/>
           <div className='custom-hero__content'>
             <h1>{data.heroTitle}</h1>
             <Button href={data.ctaUrl} primary>{data.ctaTitle}</Button>

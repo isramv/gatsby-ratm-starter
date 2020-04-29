@@ -18,10 +18,10 @@ export default ({ block }) => {
         {accordionItems.map((item, index) => {
           return (
             <>
-              <AccordionTitle index={index} active={(index === indx) ? true : false} onClick={handleClick}>
+              <AccordionTitle key={`accordion-title${index}`} index={index} active={(index === indx) ? true : false} onClick={handleClick}>
                 {item.itemTitle}
               </AccordionTitle>
-              <AccordionContent active={(index === indx) ? true : false}>
+              <AccordionContent key={`accordion-${index}`} active={(index === indx) ? true : false}>
                 {item.itemContent}
               </AccordionContent>
             </>

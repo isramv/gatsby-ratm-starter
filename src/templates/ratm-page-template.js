@@ -1,6 +1,6 @@
-import React  from "react"
-import { graphql } from "gatsby"
-import Layout from '../components/layout'
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/ratm-layout'
 import LazyComponent from '../components/lazy/Lazy'
 
 export const query = graphql`
@@ -15,22 +15,18 @@ query ($id: ID!) {
   }
 }`
 
-const LazyBlocks = ({blocks}) => {
-  return(
-    <>
-      {blocks.map( (block, index) => {
-        return (<LazyComponent key={index} block={block}/>)
-      })}
-    </>
-  )
-}
-
-const PageTemplate = ({data}) => {
+const PageTemplate = ({ data }) => {
   const blocks = JSON.parse(data.wpcontent.page.blocksJSON)
-  return (<Layout>
-    <pre>{JSON.stringify(data, null, 2)}</pre>
-    <LazyBlocks blocks={blocks}/>
-  </Layout>)
+  const lazyBlockItems = blocks.map((block, index) => {
+    block.key = `lazy-${index}`
+    return <LazyComponent key={`renderer-${index}`} block={block}/>
+  })
+
+  return (
+    <Layout>
+      {lazyBlockItems}
+    </Layout>
+  )
 }
 
 export default PageTemplate
