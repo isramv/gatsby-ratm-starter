@@ -15,8 +15,8 @@ export default (block) => {
   // component does exist
   if (typeof LazyComponents[block.block.__typename] !== "undefined") {
     return React.createElement(LazyComponents[block.block.__typename], {
-      block: block.block,
-      key: block.block.key
+      block: block.block
+      // key: block.block.key
     });
   }
   // component doesn't exist yet
