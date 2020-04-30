@@ -5,16 +5,14 @@ import {
 } from 'semantic-ui-react'
 
 export default ({block}) => {
-  const data = block.attributes;
-  const image = JSON.parse(decodeURIComponent(data.image))
-
+  const image = JSON.parse(decodeURIComponent(block.image))
   return (
     <section>
       <Grid>
         <Grid.Row>
           <Grid.Column mobile={16} tablet={8} computer={8}>
-            <h1>{data.title}</h1>
-            <p dangerouslySetInnerHTML={{__html: data.copy}}/>
+            <h1>{block.title}</h1>
+            <p dangerouslySetInnerHTML={{__html: block.copy}}/>
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={8}>
             <Image src={image.url} alt={image.alt} size={'small'}/>

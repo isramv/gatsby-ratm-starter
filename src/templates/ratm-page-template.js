@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/ratm-layout'
-import LazyComponent from '../components/lazy/Lazy'
+import Lazy from '../components/lazy/Lazy'
 
 export const query = graphql`
 query ($id: ID!) {
@@ -17,10 +17,7 @@ query ($id: ID!) {
 
 const PageTemplate = ({ data }) => {
   const blocks = JSON.parse(data.wpcontent.page.blocksJSON)
-  const lazyBlockItems = blocks.map((block, index) => {
-    return <LazyComponent key={block.clientId} block={block}/>
-  })
-
+  const lazyBlockItems = blocks.map((block, index) => <Lazy key={index} block={block}/>)
   return (
     <Layout>
       {lazyBlockItems}

@@ -1,26 +1,38 @@
-import React from "react"
-import LazyblockHeroBlock from './LazyblockHeroBlock'
-import LazyblockAccordionBlock from './LazyblockAccordionBlock'
-import LazyblockTextAndImageBlock from './LazyblockTextAndImageBlock'
-import CoreParagraphBlock from './CoreParagraphBlock'
+import React from 'react'
+import LazyHero from './LazyblockHeroBlock'
+import LazyAccordion from './LazyblockAccordionBlock'
+import LazyTextAndImage from './LazyblockTextAndImageBlock'
+import CoreParagraph from './CoreParagraphBlock'
 
-const LazyComponents = {
-  LazyblockHeroBlock,
-  LazyblockAccordionBlock,
-  LazyblockTextAndImageBlock,
-  CoreParagraphBlock
+const components = {
+  lazyblockheroblock: LazyHero,
+  lazyblockaccordionblock: LazyAccordion,
+  lazyblocktextandimageblock: LazyTextAndImage,
+  coreparagraphblock: CoreParagraph
 }
 
-export default (block) => {
+export default (props) => {
   // component does exist
-  if (typeof LazyComponents[block.block.__typename] !== "undefined") {
-    return React.createElement(LazyComponents[block.block.__typename], {
-      block: block.block
-      // key: block.block.key
-    });
+  if (typeof components[props.block.__typename.toLowerCase()] !== 'undefined') {
+
+    const blockData = props.block.attributes;
+    
+    console.log(blockData);
+
+    const LazyBlock = components[props.block.__typename.toLowerCase()]
+    return <LazyBlock
+      block={blockData}
+      key={props.block.clientId}
+    />
+
   }
+
+  // if (typeof LazyComponents[block.block.__typename] !== "undefined") {
+  //   return
+  // }
   // component doesn't exist yet
   return React.createElement(
-    () => <div>The component {block.block.__typename} has not been created yet.</div>
-  );
+    // () => <div>The component {block.block.__typename} has not been created yet.</div>
+    () => <div>The component has not been created yet.</div>
+  )
 }
