@@ -13,19 +13,19 @@ export default ({ block }) => {
     return (
       <>
         <AccordionTitle
-          key={`accordion-title${index}`}
+          key={`${block.blockId}-accordion-title${index}`}
           index={index}
           active={(index === indx) ? true : false}
           onClick={handleClick}>{item.itemTitle}
         </AccordionTitle>
         <AccordionContent
-          key={`accordion-${index}`}
+          key={`${block.blockId}-accordion-${index}`}
           active={(index === indx) ? true : false}>{item.itemContent}
         </AccordionContent>
       </>
     )
   })
-
+  
   return (
     <section>
       <h1>{block.accordionTitle}</h1>

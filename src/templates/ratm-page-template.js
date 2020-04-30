@@ -17,7 +17,9 @@ query ($id: ID!) {
 
 const PageTemplate = ({ data }) => {
   const blocks = JSON.parse(data.wpcontent.page.blocksJSON)
-  const lazyBlockItems = blocks.map((block, index) => <Lazy key={index} block={block}/>)
+  const lazyBlockItems = blocks.map((block, index) => {
+    return <Lazy key={block.clientId} block={block}/>
+  })
   return (
     <Layout>
       {lazyBlockItems}
