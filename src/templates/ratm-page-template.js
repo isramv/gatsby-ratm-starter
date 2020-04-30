@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/ratm-layout'
 import Lazy from '../components/lazy/Lazy'
+import { Container } from 'semantic-ui-react'
 
 export const query = graphql`
 query ($id: ID!) {
@@ -22,7 +23,9 @@ const PageTemplate = ({ data }) => {
   })
   return (
     <Layout>
-      {lazyBlockItems}
+      <Container>
+        {lazyBlockItems}
+      </Container>
     </Layout>
   )
 }
