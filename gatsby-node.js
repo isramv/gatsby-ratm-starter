@@ -33,10 +33,6 @@ exports.createPages = async ({ actions, graphql }) => {
   const pages = result.data.wpcontent.pages.nodes
   const mediaItems = result.data.wpcontent.mediaItems.nodes
 
-  function attachImage() {
-    
-  }
-
   // Returns a page index.
   function lookForParent(id) {
     return _.findKey(pages, { 'id': id });
@@ -45,10 +41,11 @@ exports.createPages = async ({ actions, graphql }) => {
   mediaItems.forEach(mediaItem => {
     let parentIndex = lookForParent(mediaItem.parent.id)
     if (typeof parentIndex === 'string') {
-      if (typeof pages[parentIndex].mediaItems !== 'undefined') {
-        pages[parentIndex].mediaItems.push(mediaItem)
-      } else {
+      if (typeof pages[parentIndex].mediaItems === 'undefined') {
         pages[parentIndex].mediaItems = []
+      }
+      if (typeof pages[parentIndex].mediaItems === 'object') {
+        pages[parentIndex].mediaItems.push(mediaItem)
       }
     }
   })
@@ -75,24 +72,27 @@ exports.onCreateNode = async ({
 }) => {
   // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
   if (
-    node.internal.type === 'SitePage' && 
+    node.internal.type === 'SitePage' &&
     !node.isCreatedByStatefulCreatePages &&
     _.has(node, 'context')
   ) {
+    const mediaItems = node.context.page.mediaItems
+    if (typeof mediaItems === 'object') {
+      for (const mediaItem of mediaItems) {
+        // create media items.
+        let fileNode = await createRemoteFileNode({
+          url: mediaItem.mediaItemUrl,
+          parentNodeId: mediaItem.parent.id,
+          createNode,
+          createNodeId,
+          cache,
+          store,
+        })
 
-    // console.log(node.context.page.mediaItems);
-
-    // let fileNode = await createRemoteFileNode({
-    //   url: node.frontmatter.featuredImgUrl, // string that points to the URL of the image
-    //   parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
-    //   createNode, // helper function in gatsby-node to generate the node
-    //   createNodeId, // helper function in gatsby-node to generate the node id
-    //   cache, // Gatsby's cache
-    //   store, // Gatsby's redux store
-    // })
-    //
-    // if (fileNode) {
-    //   node.featuredImg___NODE = fileNode.id
-    // }
+        if (fileNode) {
+          node.wpImage___NODE = fileNode.id
+        }
+      }
+    }
   }
 }
