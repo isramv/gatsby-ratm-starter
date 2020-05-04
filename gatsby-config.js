@@ -43,7 +43,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
+        name: `wpimages`,
         path: `${__dirname}/src/wpimages`,
       },
     }
