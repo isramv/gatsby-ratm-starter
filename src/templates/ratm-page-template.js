@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/ratm-layout'
 import Lazy from '../components/lazy/Lazy'
 import { Container } from 'semantic-ui-react'
-import Img from 'gatsby-image'
 
 export const query = graphql`
 query ($id: ID!) {
