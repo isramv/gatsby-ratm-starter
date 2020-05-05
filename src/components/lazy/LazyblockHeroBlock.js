@@ -1,10 +1,11 @@
 import React from 'react'
 import { Button, Container } from 'semantic-ui-react'
 import '../../styles/lazy/lazy.scss'
+import Img from 'gatsby-image'
 
 export default ({block}) => {
   block.ctaUrl = block.ctaUrl.replace('https://dev-ratm.pantheonsite.io', '')
-  // const image = JSON.parse(decodeURIComponent(block.imagen))
+  const image = JSON.parse(decodeURIComponent(block.imagen))
   return (
       <Container>
         <div className="custom-hero">

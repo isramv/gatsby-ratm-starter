@@ -47,7 +47,10 @@ module.exports = {
         protocol: "https",
         restApiRoutePrefix: "wp-json",
         hostingWPCOM: false,
-        useACF: false
+        useACF: false,
+        includedRoutes: [
+          "**/media"
+        ],
       }
     }
   ],

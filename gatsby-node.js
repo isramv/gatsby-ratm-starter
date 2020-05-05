@@ -63,39 +63,40 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 }
 
-exports.onCreateNode = async ({
-  node,
-  actions: { createNode },
-  store,
-  cache,
-  createNodeId,
-}) => {
-  // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
-  if (
-    node.internal.type === 'SitePage' &&
-    !node.isCreatedByStatefulCreatePages &&
-    _.has(node, 'context')
-  ) {
-    const mediaItems = node.context.page.mediaItems
-    if (typeof mediaItems === 'object') {
-      let mediaItemsArray = []
-      for (const mediaItem of mediaItems) {
-        // create media items.
-        let fileNode = await createRemoteFileNode({
-          url: mediaItem.mediaItemUrl,
-          parentNodeId: node.id,
-          createNode,
-          createNodeId,
-          cache,
-          store,
-        })
-        if (fileNode) {
-          mediaItemsArray.push(fileNode)
-          // node.context.page.mediaItems.push(fileNode);
-          // node.nodes.context.mediaItems.push(fileNode.id)
-        }
-      }
-      node.context.page.mediaItems = mediaItemsArray
-    }
-  }
-}
+//
+// exports.onCreateNode = async ({
+//   node,
+//   actions: { createNode },
+//   store,
+//   cache,
+//   createNodeId,
+// }) => {
+//   // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
+//   if (
+//     node.internal.type === 'SitePage' &&
+//     !node.isCreatedByStatefulCreatePages &&
+//     _.has(node, 'context')
+//   ) {
+//     const mediaItems = node.context.page.mediaItems
+//     if (typeof mediaItems === 'object') {
+//       let mediaItemsArray = []
+//       for (const mediaItem of mediaItems) {
+//         // create media items.
+//         let fileNode = await createRemoteFileNode({
+//           url: mediaItem.mediaItemUrl,
+//           parentNodeId: node.id,
+//           createNode,
+//           createNodeId,
+//           cache,
+//           store,
+//         })
+//         if (fileNode) {
+//           mediaItemsArray.push(fileNode)
+//           // node.context.page.mediaItems.push(fileNode);
+//           // node.nodes.context.mediaItems.push(fileNode.id)
+//         }
+//       }
+//       node.context.page.mediaItems = mediaItemsArray
+//     }
+//   }
+// }
