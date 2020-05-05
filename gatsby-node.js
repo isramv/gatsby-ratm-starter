@@ -78,21 +78,24 @@ exports.onCreateNode = async ({
   ) {
     const mediaItems = node.context.page.mediaItems
     if (typeof mediaItems === 'object') {
+      let mediaItemsArray = []
       for (const mediaItem of mediaItems) {
         // create media items.
         let fileNode = await createRemoteFileNode({
           url: mediaItem.mediaItemUrl,
-          parentNodeId: mediaItem.parent.id,
+          parentNodeId: node.id,
           createNode,
           createNodeId,
           cache,
           store,
         })
-
         if (fileNode) {
-          node.wpImage___NODE = fileNode.id
+          mediaItemsArray.push(fileNode)
+          // node.context.page.mediaItems.push(fileNode);
+          // node.nodes.context.mediaItems.push(fileNode.id)
         }
       }
+      node.context.page.mediaItems = mediaItemsArray
     }
   }
 }

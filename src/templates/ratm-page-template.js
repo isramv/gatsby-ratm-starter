@@ -30,4 +30,8 @@ const PageTemplate = ({ data }) => {
   )
 }
 
-export default PageTemplate
+const TestTemplate = (data) => <>
+  <h1>Hello Friend</h1>
+  <pre>{JSON.stringify(data, null, 2)}</pre>
+</>
+export default TestTemplate
