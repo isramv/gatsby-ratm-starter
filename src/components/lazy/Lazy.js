@@ -13,19 +13,20 @@ const components = {
   CoreHeadingBlock
 }
 
-export default (props) => {
+export default ({block}) => {
   // component does exist
-  if (typeof components[props.block.__typename] !== 'undefined') {
-    const blockData = props.block.attributes;
-    const LazyBlock = components[props.block.__typename]
+  if (typeof components[block.__typename] !== 'undefined') {
+    const blockData = block.attributes;
+    const blockId = blockData.blockId || block.clientId
+    const LazyBlock = components[block.__typename]
     return <LazyBlock
       block={blockData}
+      id={blockId}
     />
   }
 
   // component doesn't exist yet
   return React.createElement(
-    // () => <div>The component {block.block.__typename} has not been created yet.</div>
-    () => <div>The component {props.block.__typename} has not been created yet.</div>
+    () => <div>The component {block.__typename} has not been created yet.</div>
   )
 }
