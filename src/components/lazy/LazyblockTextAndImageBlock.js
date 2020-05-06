@@ -12,6 +12,7 @@ export default ({block}) => {
         allFile {
           nodes {
             name
+            url
             childImageSharp {
               fixed(width: 150) {
                 ...GatsbyImageSharpFixed
@@ -22,7 +23,7 @@ export default ({block}) => {
       }
   `)
   const allImageNodes = images.allFile.nodes;
-  const heroImage = allImageNodes.filter(imageNode => imageNode.name === image.title)
+  const heroImage = allImageNodes.filter(imageNode => imageNode.url === image.url)
   const gatsbyImg = heroImage[0].childImageSharp.fixed
   return (
     <section>
