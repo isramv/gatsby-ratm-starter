@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "fast-decode-uri-component": "^1.0.1",
     "gatsby": "^2.20.25",
     "gatsby-image": "^2.4.1",
     "gatsby-plugin-manifest": "^2.3.5",
