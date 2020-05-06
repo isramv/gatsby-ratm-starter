@@ -3,12 +3,14 @@ import LazyblockHeroBlock from './LazyblockHeroBlock'
 import LazyblockAccordionBlock from './LazyblockAccordionBlock'
 import CoreParagraphBlock from './CoreParagraphBlock'
 import LazyblockTextAndImageBlock from './LazyblockTextAndImageBlock'
+import CoreHeadingBlock from './CoreHeadingBlock'
 
 const components = {
   LazyblockHeroBlock,
   LazyblockAccordionBlock,
   LazyblockTextAndImageBlock,
-  CoreParagraphBlock
+  CoreParagraphBlock,
+  CoreHeadingBlock
 }
 
 export default (props) => {
@@ -18,7 +20,6 @@ export default (props) => {
     const LazyBlock = components[props.block.__typename]
     return <LazyBlock
       block={blockData}
-      // key={props.block.clientId}
     />
   }
 
