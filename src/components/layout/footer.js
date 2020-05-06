@@ -4,7 +4,9 @@ const Footer = () => {
   return (
     <>
       <footer>
-        Chromatic HQ © {new Date().getFullYear()}
+        <div className="ui container">
+          <p>Chromatic HQ © {new Date().getFullYear()}</p>
+        </div>
       </footer>
     </>
   )
