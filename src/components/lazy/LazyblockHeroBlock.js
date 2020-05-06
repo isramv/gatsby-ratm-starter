@@ -31,7 +31,9 @@ export default ({ block }) => {
   return (
     <section className="custom-hero">
       <div className='custom-hero__content'>
-        <Img fluid={hero}/>
+        <div style={{maxHeight: `400px`, overflow: `hidden`}}>
+          <Img fluid={hero}/>
+        </div>
         <h1>{block.heroTitle}</h1>
         <Button href={block.ctaUrl} primary>{block.ctaTitle}</Button>
       </div>
