@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Chromatic demo`,
-    author: `@gatsbyjs`,
+    author: `@isramv`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -4,13 +4,15 @@ import LazyblockAccordionBlock from './LazyblockAccordionBlock'
 import CoreParagraphBlock from './CoreParagraphBlock'
 import LazyblockTextAndImageBlock from './LazyblockTextAndImageBlock'
 import CoreHeadingBlock from './CoreHeadingBlock'
+import CoreQuoteBlock from './CoreQuoteBlock'
 
 const components = {
   LazyblockHeroBlock,
   LazyblockAccordionBlock,
   LazyblockTextAndImageBlock,
   CoreParagraphBlock,
-  CoreHeadingBlock
+  CoreHeadingBlock,
+  CoreQuoteBlock
 }
 
 export default ({block}) => {

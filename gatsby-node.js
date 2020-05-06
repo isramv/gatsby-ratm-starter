@@ -9,17 +9,6 @@ const _ = require(`lodash`)
 exports.createPages = async ({ actions, graphql }) => {
   const result = await graphql(`{ 
   wpcontent {
-    mediaItems {
-      nodes {
-        id
-        mediaItemUrl
-        parent {
-          ... on WPGraphQL_Page {
-            id
-          }
-        }
-      }
-    }
     pages {
       nodes {
         title
@@ -29,27 +18,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   }
   }`)
-
   const pages = result.data.wpcontent.pages.nodes
-  const mediaItems = result.data.wpcontent.mediaItems.nodes
-
-  // Returns a page index.
-  function lookForParent(id) {
-    return _.findKey(pages, { 'id': id });
-  }
-
-  mediaItems.forEach(mediaItem => {
-    let parentIndex = lookForParent(mediaItem.parent.id)
-    if (typeof parentIndex === 'string') {
-      if (typeof pages[parentIndex].mediaItems === 'undefined') {
-        pages[parentIndex].mediaItems = []
-      }
-      if (typeof pages[parentIndex].mediaItems === 'object') {
-        pages[parentIndex].mediaItems.push(mediaItem)
-      }
-    }
-  })
-
   pages.forEach(page => {
     actions.createPage({
       path: page.uri,
