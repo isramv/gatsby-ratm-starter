@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/ratm-layout'
+import Layout from '../components/layout/ratm-layout'
 import Lazy from '../components/lazy/Lazy'
 import { Container } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.css'

@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Menu, Segment } from 'semantic-ui-react'
-import './layout.css'
+import './ratm-layout.scss'
 
-const Layout = ({ children }) => {
+const Header = () => {
   const data = useStaticQuery(graphql`
   {
     wpcontent {
@@ -26,9 +25,7 @@ const Layout = ({ children }) => {
     }
   }
   `)
-
   const menuItems = data.wpcontent.menus.edges[0].node.menuItems.edges
-
   return (
     <>
       <header>
@@ -44,16 +41,8 @@ const Layout = ({ children }) => {
           </Menu>
         </Segment>
       </header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}
-      </footer>
     </>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+export default Header
