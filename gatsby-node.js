@@ -32,6 +32,30 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 }
 
+exports.createResolvers = ({
+  actions,
+  getCache,
+  createNodeId,
+  createResolvers,
+}) => {
+  const { createNode } = actions
+  createResolvers({
+    WPGraphQL_MediaItem: {
+      imageFile: {
+        type: `File`,
+        resolve(source) {
+          return createRemoteFileNode({
+            url: encodeURI(source.sourceUrl),
+            getCache,
+            createNode,
+            createNodeId,
+          })
+        },
+      },
+    },
+  })
+}
+
 //
 // exports.onCreateNode = async ({
 //   node,
