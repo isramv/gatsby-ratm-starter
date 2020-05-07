@@ -38,7 +38,7 @@ module.exports = {
         fieldName: "wpcontent",
         // Url to query from
         url: "https://dev-ratm.pantheonsite.io/graphql"
-      },
+      }
     }
   ],
 }
