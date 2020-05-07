@@ -46,7 +46,7 @@ exports.createResolvers = ({
       imageFile: {
         type: `File`,
         resolve(source, args, context, info) {
-          let sourceUrl = source.sourceUrl || source.mediaItemUrl
+          let sourceUrl = source.mediaItemUrl || source.sourceUrl
           return createRemoteFileNode({
             url: sourceUrl,
             store,
