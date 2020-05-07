@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
     setVisible(!visible)
   }
   return (
-    <>
+    <div className='pageContainer'>
       <Responsive className='header'>
         <Menu inverted style={{borderRadius: `0`}}>
           <Container>
@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
         </SidebarPusher>
       </SidebarPushable>
       <Footer/>
-    </>
+    </div>
   )
 }
 

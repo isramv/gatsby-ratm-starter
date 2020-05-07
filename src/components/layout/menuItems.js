@@ -35,6 +35,7 @@ const MenuItems = () => {
           href={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')}
         />
       })}
+      <Menu.Item href='/blog'>Blog</Menu.Item>
     </>
   )
 }

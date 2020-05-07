@@ -3,7 +3,7 @@ import Layout from '../components/layout/ratm-layout'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Container } from 'semantic-ui-react'
 
-const BlogIndex = () => {
+const Blog = () => {
   const query = useStaticQuery(graphql`{
     allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
       edges {
@@ -32,4 +32,4 @@ const BlogIndex = () => {
   )
 }
 
-export default BlogIndex
+export default Blog
