@@ -1,24 +1,33 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Container } from 'semantic-ui-react'
+import Layout from '../components/layout/ratm-layout'
 
-export default function Template({data}) {
+export const query = graphql`
+query ($path: String!) {
+  markdownRemark(frontmatter: {path: {eq: $path}}) {
+    frontmatter {
+      path
+      date
+      title
+    }
+    html
+  }
+}
+`
+
+const BlogTemplate = ({data}) => {
   const { markdownRemark } = data
-  const { html } = markdownRemark
+  const { title } = markdownRemark.frontmatter
 
   return (
-    <div dangerouslySetInnerHTML={{__html: html}}/>
+    <Layout>
+      <Container>
+        <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{__html: markdownRemark.html}}/>
+      </Container>
+    </Layout>
   )
 }
 
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-      }
-    }
-  }
-`
+export default BlogTemplate
