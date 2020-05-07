@@ -46,7 +46,7 @@ exports.createPages = async ({ actions, graphql }) => {
       path: page.node.frontmatter.path,
       component: require.resolve('./src/templates/blog-template.js'),
       context: {
-        path: page.node.frontmatter.path
+        pathQuery: page.node.frontmatter.path
       }
     })
   })

@@ -4,8 +4,8 @@ import { Container } from 'semantic-ui-react'
 import Layout from '../components/layout/ratm-layout'
 
 export const query = graphql`
-query ($path: String!) {
-  markdownRemark(frontmatter: {path: {eq: $path}}) {
+query ($pathQuery: String!) {
+  markdownRemark(frontmatter: {path: {eq: $pathQuery}}) {
     frontmatter {
       path
       date
