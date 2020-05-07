@@ -1,9 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import './ratm-layout.scss'
 
-const Header = () => {
+const MenuItems = () => {
   const data = useStaticQuery(graphql`
   {
     wpcontent {
@@ -28,21 +28,15 @@ const Header = () => {
   const menuItems = data.wpcontent.menus.edges[0].node.menuItems.edges
   return (
     <>
-      <header>
-        <Segment inverted>
-          <Menu inverted secondary>
-            {menuItems.map((item, index) => {
-              return <Menu.Item
-                key={`menu-${index}`}
-                name={item.node.label}
-                href={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')}
-              />
-            })}
-          </Menu>
-        </Segment>
-      </header>
+      {menuItems.map((item, index) => {
+        return <Menu.Item
+          key={`menu-${index}`}
+          name={item.node.label}
+          href={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')}
+        />
+      })}
     </>
   )
 }
 
-export default Header
+export default MenuItems

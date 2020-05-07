@@ -1,12 +1,13 @@
 import React from 'react'
+import { Container } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
     <>
       <footer>
-        <div className="ui container">
+        <Container text>
           <p>Chromatic HQ © {new Date().getFullYear()}</p>
-        </div>
+        </Container>
       </footer>
     </>
   )
