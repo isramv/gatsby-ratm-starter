@@ -1,18 +1,19 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Chromatic demo`,
+    author: `@isramv`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
+    `gatsby-plugin-sass`,
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -39,8 +40,18 @@ module.exports = {
         // url: "https://ratm.lndo.site/graphql",
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "dev-ratm.pantheonsite.io",
+        protocol: "https",
+        restApiRoutePrefix: "wp-json",
+        hostingWPCOM: false,
+        useACF: false,
+        includedRoutes: [
+          "**/media"
+        ],
+      }
+    }
   ],
 }

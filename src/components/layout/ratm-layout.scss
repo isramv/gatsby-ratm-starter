@@ -1,0 +1,14 @@
+footer {
+  background: #000;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.main-content {
+  padding: 0 0 50px;
+  > .container {
+    &:first-child:not(.custom-hero) {
+      padding-top: 50px;
+    }
+  }
+}
