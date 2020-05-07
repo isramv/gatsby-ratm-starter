@@ -37,8 +37,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "wpcontent",
         // Url to query from
-        url: "https://dev-ratm.pantheonsite.io/graphql",
-        // url: "https://ratm.lndo.site/graphql",
+        url: "https://dev-ratm.pantheonsite.io/graphql"
       },
     }
   ],
