@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Gatsby Demo Chromatic`,
     description: `Chromatic demo`,
     author: `@isramv`,
   },
@@ -19,20 +19,6 @@ module.exports = {
         // url: "https://ratm.lndo.site/graphql",
       },
     },
-    // {
-    //   resolve: "gatsby-source-wordpress",
-    //   options: {
-    //     baseUrl: "dev-ratm.pantheonsite.io",
-    //     protocol: "https",
-    //     restApiRoutePrefix: "wp-json",
-    //     hostingWPCOM: false,
-    //     useACF: false,
-    //     verboseOutput: false,
-    //     includedRoutes: [
-    //       "**/media"
-    //     ],
-    //   }
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
