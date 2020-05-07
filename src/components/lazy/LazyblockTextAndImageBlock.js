@@ -1,18 +1,19 @@
 import React from 'react'
-import {
-  Grid
-} from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import fastDecode from 'fast-decode-uri-component'
 
 export default ({block}) => {
-  const image = JSON.parse(decodeURIComponent(block.image))
+  const image = JSON.parse(fastDecode(block.image))
   const images = useStaticQuery(graphql`
     {
-        allFile {
-          nodes {
-            name
-            url
+    wpcontent {
+      mediaItems {
+        nodes {
+          title
+          sourceUrl
+          imageFile {
             childImageSharp {
               fixed(width: 150) {
                 ...GatsbyImageSharpFixed
@@ -21,10 +22,16 @@ export default ({block}) => {
           }
         }
       }
-  `)
-  const allImageNodes = images.allFile.nodes;
-  const heroImage = allImageNodes.filter(imageNode => imageNode.url === image.url)
-  const gatsbyImg = heroImage[0].childImageSharp.fixed
+    }
+  }`)
+  const allImageNodes = images.wpcontent.mediaItems.nodes
+  const heroImage = allImageNodes.filter(imageNode => {
+    return imageNode.sourceUrl === image.url
+  })
+  let gatsbyImg = null
+  if (heroImage.length > 0) {
+    gatsbyImg = heroImage[0].imageFile.childImageSharp.fixed
+  }
   return (
     <section>
       <Grid>
