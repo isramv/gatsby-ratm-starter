@@ -4,7 +4,6 @@ import MenuItems from './menuItems'
 import Footer from './footer'
 import './ratm-layout.scss'
 import {
-  Segment,
   SidebarPusher,
   SidebarPushable,
   Sidebar,
@@ -23,7 +22,7 @@ const Layout = ({ children }) => {
   }
   return (
     <>
-      <Responsive>
+      <Responsive className='header'>
         <Menu inverted style={{borderRadius: `0`}}>
           <Container>
             <Responsive maxWidth={760}>
@@ -58,13 +57,10 @@ const Layout = ({ children }) => {
           </MenuItem>
           <MenuItems/>
         </Sidebar>
-        <SidebarPusher>
-          <main className="main-content">
-            {children}
-          </main>
+        <SidebarPusher className='main-content'>
+          {children}
         </SidebarPusher>
       </SidebarPushable>
-
       <Footer/>
     </>
   )

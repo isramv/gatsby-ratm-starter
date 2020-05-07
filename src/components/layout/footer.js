@@ -1,14 +1,14 @@
 import React from 'react'
-import { Container } from 'semantic-ui-react'
+import { Container, Segment } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
     <>
-      <footer>
-        <Container text>
+      <Segment inverted className='footer'>
+        <Container>
           <p>Chromatic HQ © {new Date().getFullYear()}</p>
         </Container>
-      </footer>
+      </Segment>
     </>
   )
 }
