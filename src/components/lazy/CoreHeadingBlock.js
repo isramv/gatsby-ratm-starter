@@ -18,7 +18,7 @@ export default ({block}) => {
       break
     default:
       blockLevel = <h2 dangerouslySetInnerHTML={{__html: block.content}}/>
-    break
+      break
   }
   return <Container className='heading-element'>{blockLevel}</Container>
 }
