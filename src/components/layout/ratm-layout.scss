@@ -4,13 +4,12 @@ footer {
   color: #fff;
 }
 
-.main-content {
-  padding: 0 0 50px;
-  > .container {
-    &:first-child:not(.custom-hero) {
-      padding-top: 50px;
-    }
-  }
+.navigation {
+  background: #1B1C1D;
+}
+
+.no-lazy-blocks {
+  padding-top: 50px;
 }
 
 // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
