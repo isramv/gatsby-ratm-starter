@@ -7,6 +7,7 @@ import {
   SidebarPusher,
   SidebarPushable,
   Sidebar,
+  Segment,
   Menu,
   Icon,
   Container,
@@ -25,7 +26,7 @@ const Layout = ({ children }) => {
   return (
     <div className='pageContainer'>
       <div className='header'>
-        <Menu inverted style={{ borderRadius: `0` }}>
+        <Segment inverted style={{ borderRadius: `0` }}>
           <Container>
             <Responsive maxWidth={760}>
               <Menu inverted>
@@ -40,7 +41,7 @@ const Layout = ({ children }) => {
               </Menu>
             </Responsive>
           </Container>
-        </Menu>
+        </Segment>
       </div>
       <SidebarPushable>
         <Sidebar as={Menu}
