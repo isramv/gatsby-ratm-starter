@@ -1,5 +1,5 @@
 import React from 'react'
-import {Accordion, AccordionContent, AccordionTitle, Container, Grid, GridColumn } from 'semantic-ui-react'
+import {Accordion, AccordionContent, AccordionTitle, Container } from 'semantic-ui-react'
 
 export default ({ block }) => {
   const accordionItems = JSON.parse(decodeURIComponent(block.items))

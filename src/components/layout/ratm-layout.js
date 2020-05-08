@@ -7,8 +7,6 @@ import {
   SidebarPusher,
   SidebarPushable,
   Sidebar,
-  Grid,
-  GridRow,
   Menu,
   Icon,
   Container,

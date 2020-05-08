@@ -23,8 +23,10 @@ const BlogTemplate = ({data}) => {
   return (
     <Layout>
       <Container>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{__html: markdownRemark.html}}/>
+        <div className='blog-template'>
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{__html: markdownRemark.html}}/>
+        </div>
       </Container>
     </Layout>
   )
