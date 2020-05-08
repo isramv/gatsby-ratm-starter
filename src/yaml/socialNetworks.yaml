@@ -1,3 +1,12 @@
-- item:
+- social:
   name: Facebook
   url: rockmonk
+  icon: facebook
+- social:
+  name: Twitter
+  url: isramv
+  icon: twitter
+- social:
+  name: Linkedin
+  url: linkedin
+  icon: linkedin

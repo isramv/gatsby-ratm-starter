@@ -1,0 +1,16 @@
+- employee:
+    name: Chris Free
+    location: Chicago Ill, USA
+    jobDescription: CEO
+- employee:
+    name: Mark Dorison
+    location: Florida, USA
+    jobDescription: CTO
+- employee:
+    name: Kim Sarabia
+    location: Chicago Ill, USA
+    jobDescription: Front End Developer.
+- employee:
+    name: Israel Morales
+    location: Guadalajara Jalisco Mexico
+    jobDescription: Front End Developer.
