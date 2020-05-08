@@ -11,6 +11,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: 'Yaml',
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
@@ -28,6 +34,13 @@ module.exports = {
         name: `markdown-pages`,
         path: `${__dirname}/src/markdown-pages`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `Yaml`,
+        path: `${__dirname}/src/yaml`
+      }
     },
     {
       resolve: "gatsby-source-graphql",
