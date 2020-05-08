@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -28,6 +29,13 @@ module.exports = {
         name: `markdown-pages`,
         path: `${__dirname}/src/markdown-pages`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `Yaml`,
+        path: `${__dirname}/src/yaml`
+      }
     },
     {
       resolve: "gatsby-source-graphql",

@@ -1,0 +1,10 @@
+- social:
+  url: https://facebook.com/rockmonk
+  icon: facebook
+- social:
+  name: Twitter
+  url: https://twitter.com/isramv
+  icon: twitter
+- social:
+  url: https://www.linkedin.com/in/isramv
+  icon: linkedin

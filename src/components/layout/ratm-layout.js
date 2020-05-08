@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import MenuItems from './menuItems'
 import Footer from './footer'
@@ -7,7 +7,8 @@ import {
   SidebarPusher,
   SidebarPushable,
   Sidebar,
-  Segment,
+  Grid,
+  GridRow,
   Menu,
   Icon,
   Container,
@@ -15,33 +16,31 @@ import {
   MenuItem
 } from 'semantic-ui-react'
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   const [visible, setVisible] = useState(false)
 
-  function toggleMobileNav (e) {
+  function toggleMobileNav(e) {
     e.preventDefault()
     setVisible(!visible)
   }
 
   return (
     <div className='pageContainer'>
-      <div className='header'>
-        <Segment inverted style={{ borderRadius: `0` }}>
-          <Container>
-            <Responsive maxWidth={760}>
-              <Menu inverted>
-                <MenuItem onClick={toggleMobileNav}>
-                  <Icon name='content'/>
-                </MenuItem>
-              </Menu>
-            </Responsive>
-            <Responsive minWidth={761}>
-              <Menu className='main-menu--desktop' inverted pointing secondary>
-                <MenuItems/>
-              </Menu>
-            </Responsive>
-          </Container>
-        </Segment>
+      <div className='navigation'>
+        <Container>
+          <Responsive minWidth={761}>
+            <Menu className='main-menu--desktop' inverted pointing secondary>
+              <MenuItems/>
+            </Menu>
+          </Responsive>
+          <Responsive maxWidth={760}>
+            <Menu inverted>
+              <MenuItem onClick={toggleMobileNav}>
+                <Icon name='content'/>
+              </MenuItem>
+            </Menu>
+          </Responsive>
+        </Container>
       </div>
       <SidebarPushable>
         <Sidebar as={Menu}
@@ -51,8 +50,7 @@ const Layout = ({ children }) => {
                  onHide={() => setVisible(false)}
                  vertical
                  visible={visible}
-                 width='thin'
-        >
+                 width='thin'>
           <MenuItem onClick={toggleMobileNav}>
             <Icon name='close' circular={true} size='small'/>
           </MenuItem>

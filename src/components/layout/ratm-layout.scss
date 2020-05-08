@@ -4,12 +4,39 @@ footer {
   color: #fff;
 }
 
-.main-content {
-  padding: 0 0 50px;
-  > .container {
-    &:first-child:not(.custom-hero) {
-      padding-top: 50px;
-    }
+.navigation {
+  background: #1B1C1D;
+}
+
+.no-lazy-blocks {
+  padding-top: 50px;
+}
+
+.lzb-two-column {
+  padding: 50px 0;
+  .lzb-two-column__content {
+    padding-bottom: 20px;
+  }
+}
+
+.lzb-accordion {
+  padding: 50px 0;
+  background: #e3e3e3;
+
+  .description {
+    margin-bottom: 20px;
+  }
+}
+
+.lzb-accordion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.has-lazy-blocks {
+  .heading-element {
+    padding: 20px 0;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from 'semantic-ui-react'
+import {Container, Grid} from 'semantic-ui-react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import fastDecode from 'fast-decode-uri-component'
@@ -33,18 +33,20 @@ export default ({block}) => {
     gatsbyImg = heroImage[0].imageFile.childImageSharp.fixed
   }
   return (
-    <section>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column mobile={16} tablet={8} computer={8}>
-            <h1>{block.title}</h1>
-            <p dangerouslySetInnerHTML={{__html: block.copy}}/>
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={8}>
-            <Img fixed={gatsbyImg}/>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+    <section className='lzb-two-column'>
+      <Container>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column mobile={16} tablet={8} computer={8} className='lzb-two-column__content' textAlign='center'>
+              <h1>{block.title}</h1>
+              <p dangerouslySetInnerHTML={{__html: block.copy}}/>
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={8} className='lzb-two-column__photo' textAlign='center'>
+              <Img fixed={gatsbyImg}/>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     </section>
   )
 }

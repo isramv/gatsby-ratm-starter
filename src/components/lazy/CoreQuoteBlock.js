@@ -1,5 +1,6 @@
 import React from 'react'
+import {Container} from "semantic-ui-react";
 
 export default ({block}) => {
-  return <h3 dangerouslySetInnerHTML={{__html: block.value}}/>
+  return <Container><h3 dangerouslySetInnerHTML={{__html: block.value}}/></Container>
 }
