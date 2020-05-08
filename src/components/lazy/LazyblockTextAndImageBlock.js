@@ -15,7 +15,7 @@ export default ({block}) => {
           sourceUrl
           imageFile {
             childImageSharp {
-              fixed(width: 150) {
+              fixed(width: 250) {
                 ...GatsbyImageSharpFixed
               }
             }
