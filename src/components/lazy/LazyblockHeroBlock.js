@@ -3,6 +3,7 @@ import { Button } from 'semantic-ui-react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import fastDecode from 'fast-decode-uri-component'
+import './styles/lazyblockHeroBlock.scss'
 
 export default ({ block }) => {
   let image = fastDecode(block.imagen)
@@ -35,13 +36,15 @@ export default ({ block }) => {
     hero = heroImage[0].imageFile.childImageSharp.fluid
   }
   return (
-    <section className="custom-hero">
-      <div className='custom-hero__content'>
-        <div style={{ maxHeight: `400px`, overflow: `hidden` }}>
+    <section className="lzb-hero">
+      <div className='lzb-hero__container'>
+        <div className='lzb-hero__image' style={{ maxHeight: `450px`, overflow: `hidden` }}>
           {(hero) ? <Img fluid={hero}/> : null}
         </div>
-        <h1>{block.heroTitle}</h1>
-        <Button href={block.ctaUrl} primary>{block.ctaTitle}</Button>
+        <div className='lzb-hero__content-container'>
+          {(block.heroTitle) ? <h1>{block.heroTitle}</h1> : null}
+          {(block.ctaUrl) ? <Button href={block.ctaUrl} primary>{block.ctaTitle}</Button> : null }
+        </div>
       </div>
     </section>
   )
