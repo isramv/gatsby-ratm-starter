@@ -10,12 +10,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-transformer-yaml`,
-      options: {
-        typeName: 'Yaml',
-      },
-    },
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
