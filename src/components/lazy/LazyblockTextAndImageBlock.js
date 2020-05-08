@@ -37,7 +37,7 @@ export default ({block}) => {
       <Container>
         <Grid>
           <Grid.Row>
-            <Grid.Column mobile={16} tablet={8} computer={8} className='lzb-two-column__content' textAlign='center'>
+            <Grid.Column mobile={16} tablet={8} computer={8} className='lzb-two-column__content' textAlign='left'>
               <h1>{block.title}</h1>
               <p dangerouslySetInnerHTML={{__html: block.copy}}/>
             </Grid.Column>
