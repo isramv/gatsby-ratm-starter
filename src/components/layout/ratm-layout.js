@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
               </Menu>
             </Responsive>
             <Responsive minWidth={761}>
-              <Menu inverted pointing secondary>
+              <Menu className='main-menu--desktop' inverted pointing secondary>
                 <MenuItems/>
               </Menu>
             </Responsive>
