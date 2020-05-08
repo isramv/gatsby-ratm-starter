@@ -21,7 +21,7 @@ const PageTemplate = ({ data }) => {
   const blocks = JSON.parse(data.wpcontent.page.blocksJSON)
   const lazyBlocks = blocks.filter(block => block.name.includes('lazy'))
   const lazyBlockItems = blocks.map((block, index) => <Lazy key={`lazy-${index}`} block={block}/>)
-  const container = (lazyBlocks.length > 0) ? lazyBlockItems : <Container className='no-lazy-blocks'>{lazyBlockItems}</Container>
+  const container = (lazyBlocks.length > 0) ? <div className='has-lazy-blocks'>{lazyBlockItems}</div> : <Container className='no-lazy-blocks'>{lazyBlockItems}</Container>
   return (
     <Layout>
       {container}

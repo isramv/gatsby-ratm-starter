@@ -12,6 +12,34 @@ footer {
   padding-top: 50px;
 }
 
+.lzb-two-column {
+  padding: 50px 0;
+  .lzb-two-column__content {
+    padding-bottom: 20px;
+  }
+}
+
+.lzb-accordion {
+  padding: 50px 0;
+  background: #e3e3e3;
+
+  .description {
+    margin-bottom: 20px;
+  }
+}
+
+.lzb-accordion__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.has-lazy-blocks {
+  .heading-element {
+    padding: 20px 0;
+  }
+}
+
 // https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 .pageContainer {
   display: flex;

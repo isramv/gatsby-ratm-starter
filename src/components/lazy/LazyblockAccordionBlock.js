@@ -1,14 +1,12 @@
 import React from 'react'
-import { Accordion, AccordionContent, AccordionTitle } from 'semantic-ui-react'
+import {Accordion, AccordionContent, AccordionTitle, Container, Grid, GridColumn } from 'semantic-ui-react'
 
 export default ({ block }) => {
   const accordionItems = JSON.parse(decodeURIComponent(block.items))
   const [indx, setIndx] = React.useState(0)
-
   function handleClick (e, titleProps) {
     setIndx(titleProps.index)
   }
-
   const accordions = accordionItems.map((item, index) => {
     return (
       <>
@@ -27,12 +25,18 @@ export default ({ block }) => {
   })
   
   return (
-    <section>
-      <h1>{block.accordionTitle}</h1>
-      <p dangerouslySetInnerHTML={{ __html: block.accordionDescription }}/>
-      <Accordion styled>
-        {accordions}
-      </Accordion>
+    <section className='lzb-accordion'>
+      <Container text textAlign='center'>
+        <h1>{block.accordionTitle}</h1>
+        <p className='description' dangerouslySetInnerHTML={{ __html: block.accordionDescription }}/>
+      </Container>
+      <Container>
+        <div className='lzb-accordion__container'>
+          <Accordion styled>
+            {accordions}
+          </Accordion>
+        </div>
+      </Container>
     </section>
   )
 }
