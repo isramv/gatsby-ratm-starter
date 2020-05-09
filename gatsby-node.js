@@ -157,6 +157,14 @@ exports.createResolvers = ({
           })
         },
       },
+    },
+    WPGraphQL_Page: {
+      blocksGatsbyJSON: {
+        type: `JSON`,
+        resolve(source, args, context, info) {
+          return JSON.parse(source.blocksJSON)
+        }
+      },
     }
   })
 }

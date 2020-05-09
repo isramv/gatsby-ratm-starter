@@ -31,7 +31,6 @@ export default ({ block }) => {
   const heroImage = allImageNodes.filter(imageNode => {
     return imageNode.sourceUrl === image.url
   })
-  console.log(allImageNodes);
   let hero = null
   if (heroImage.length > 0) {
     console.log(hero);
