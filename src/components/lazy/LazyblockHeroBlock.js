@@ -1,8 +1,6 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import fastDecode from 'fast-decode-uri-component'
 import './styles/lazyblockHeroBlock.scss'
 
 export default ({ block }) => {

@@ -2,7 +2,9 @@ import React from 'react'
 import {Accordion, AccordionContent, AccordionTitle, Container } from 'semantic-ui-react'
 
 export default ({ block }) => {
-  const accordionItems = JSON.parse(decodeURIComponent(block.items))
+  console.log(block);
+  // todo create resolver for attributes.
+  const accordionItems = JSON.parse(decodeURIComponent(block.attributes.items))
   const [indx, setIndx] = React.useState(0)
   function handleClick (e, titleProps) {
     setIndx(titleProps.index)
@@ -23,7 +25,6 @@ export default ({ block }) => {
       </>
     )
   })
-  
   return (
     <section className='lzb-accordion'>
       <Container text textAlign='center'>
