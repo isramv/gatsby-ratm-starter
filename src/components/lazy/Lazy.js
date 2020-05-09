@@ -25,7 +25,6 @@ export default ({block}) => {
       id={blockId}
     />
   }
-
   // component doesn't exist yet
   return React.createElement(
     () => <div>The component {blockName} has not been created yet.</div>
