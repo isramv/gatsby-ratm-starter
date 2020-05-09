@@ -86,7 +86,22 @@ exports.createResolvers = ({
         resolve(source, args, context, info) {
           return JSON.parse(fastDecode(source.imagen))
         }
-      }
-    }
+      },
+      imageGatsby: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          let imageJSON = JSON.parse(fastDecode(source.imagen));
+          let sourceUrl = imageJSON.url
+          return createRemoteFileNode({
+            url: sourceUrl,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter
+          })
+        },
+      },
+    },
   })
 }
