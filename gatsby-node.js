@@ -103,5 +103,28 @@ exports.createResolvers = ({
         },
       },
     },
+    WPGraphQL_LazyblockTextAndImageBlockAttributes: {
+      imageJSON: {
+        type: `JSON`,
+        resolve(source, args, context, info) {
+          return JSON.parse(fastDecode(source.image))
+        }
+      },
+      imageGatsby: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          let imageJSON = JSON.parse(fastDecode(source.image));
+          let sourceUrl = imageJSON.url
+          return createRemoteFileNode({
+            url: sourceUrl,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter
+          })
+        },
+      },
+    }
   })
 }
