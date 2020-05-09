@@ -7,22 +7,22 @@ import CoreHeadingBlock from './CoreHeadingBlock'
 import CoreQuoteBlock from './CoreQuoteBlock'
 
 const components = {
-  LazyblockHeroBlock,
-  LazyblockAccordionBlock,
-  LazyblockTextAndImageBlock,
-  CoreParagraphBlock,
-  CoreHeadingBlock,
-  CoreQuoteBlock
+  LazyblockHeroBlock
 }
+
+// LazyblockAccordionBlock,
+// LazyblockTextAndImageBlock,
+// CoreParagraphBlock,
+// CoreHeadingBlock,
+// CoreQuoteBlock
 
 export default ({block}) => {
   const blockName = block.__typename.replace('WPGraphQL_', '')
   if (typeof components[blockName] !== 'undefined') {
-    const blockData = block.attributes;
-    const blockId = blockData.blockId || block.clientId
+    const blockId = block.clientId
     const LazyBlock = components[blockName]
     return <LazyBlock
-      block={blockData}
+      block={block}
       id={blockId}
     />
   }
