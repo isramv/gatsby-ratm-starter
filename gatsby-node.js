@@ -125,6 +125,38 @@ exports.createResolvers = ({
           })
         },
       },
+    },
+    WPGraphQL_LazyblockHeroBlock : {
+      imageGatsby: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          let imageJSON = JSON.parse(fastDecode(source.attributes.imagen))
+          return createRemoteFileNode({
+            url: imageJSON.url,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter
+          })
+        },
+      },
+    },
+    WPGraphQL_LazyblockTextAndImageBlock : {
+      imageGatsby: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          let imageJSON = JSON.parse(fastDecode(source.attributes.image))
+          return createRemoteFileNode({
+            url: imageJSON.url,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter
+          })
+        },
+      },
     }
   })
 }
