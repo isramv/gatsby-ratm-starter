@@ -52,6 +52,8 @@ exports.createPages = async ({ actions, graphql }) => {
   })
 }
 
+const fastDecode = require('fast-decode-uri-component')
+
 exports.createResolvers = ({
   actions,
   cache,
@@ -78,5 +80,13 @@ exports.createResolvers = ({
         },
       },
     },
+    WPGraphQL_LazyblockHeroBlockAttributes: {
+      imageJSON: {
+        type: `JSON`,
+        resolve(source, args, context, info) {
+          return JSON.parse(fastDecode(source.imagen))
+        }
+      }
+    }
   })
 }
