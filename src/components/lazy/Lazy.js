@@ -8,14 +8,12 @@ import CoreQuoteBlock from './CoreQuoteBlock'
 
 const components = {
   LazyblockHeroBlock,
-  LazyblockAccordionBlock
+  LazyblockAccordionBlock,
+  LazyblockTextAndImageBlock,
+  CoreParagraphBlock,
+  CoreHeadingBlock,
+  CoreQuoteBlock
 }
-
-// LazyblockTextAndImageBlock,
-// CoreParagraphBlock,
-// CoreHeadingBlock,
-// CoreQuoteBlock
-
 
 export default ({block}) => {
   const blockName = block.__typename.replace('WPGraphQL_', '')

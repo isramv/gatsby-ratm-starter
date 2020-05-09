@@ -2,7 +2,6 @@ import React from 'react'
 import {Accordion, AccordionContent, AccordionTitle, Container } from 'semantic-ui-react'
 
 export default ({ block }) => {
-  console.log(block);
   // todo create resolver for attributes.
   const accordionItems = JSON.parse(decodeURIComponent(block.attributes.items))
   const [indx, setIndx] = React.useState(0)
