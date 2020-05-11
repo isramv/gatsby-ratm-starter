@@ -20,7 +20,6 @@ query ($id: ID!) {
           parentId
           attributes {
             imagen
-            imageJSON
           }
           imageGatsby {
             childImageSharp {
