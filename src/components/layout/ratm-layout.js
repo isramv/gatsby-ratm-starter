@@ -39,16 +39,14 @@ const Layout = ({children}) => {
             </GridColumn>
             <GridColumn mobile={3} tablet={10} computer={10} largeScreen={13}>
               <Responsive minWidth={761}>
-                <Menu className='main-menu--desktop' inverted pointing secondary>
+                <ul className='main-menu--desktop'>
                   <MenuItems/>
-                </Menu>
+                </ul>
               </Responsive>
-              <Responsive maxWidth={760}>
-                <Menu inverted>
-                  <MenuItem onClick={toggleMobileNav}>
+              <Responsive className='hamburger-container' maxWidth={760}>
+                  <a onClick={toggleMobileNav}>
                     <Icon name='content'/>
-                  </MenuItem>
-                </Menu>
+                  </a>
               </Responsive>
             </GridColumn>
           </Grid>
@@ -66,7 +64,9 @@ const Layout = ({children}) => {
           <MenuItem onClick={toggleMobileNav}>
             <Icon name='close' circular={true} size='small'/>
           </MenuItem>
-          <MenuItems/>
+          <ul className="mobile-navigation">
+            <MenuItems/>
+          </ul>
         </Sidebar>
         <SidebarPusher className='main-content'>
           {children}

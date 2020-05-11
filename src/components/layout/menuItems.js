@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { Menu } from 'semantic-ui-react'
 import './ratm-layout.scss'
 
@@ -29,13 +29,12 @@ const MenuItems = () => {
   return (
     <>
       {menuItems.map((item, index) => {
-        return <Menu.Item
+        return <li><Link
           key={`menu-${index}`}
-          name={item.node.label}
-          href={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')}
-        />
+          to={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')
+          }>{item.node.label}</Link></li>
       })}
-      <Menu.Item href='/blog'>Blog</Menu.Item>
+      <li><Link to='/blog'>Blog</Link></li>
     </>
   )
 }
