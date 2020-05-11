@@ -44,7 +44,7 @@ const Layout = ({children}) => {
                 </ul>
               </Responsive>
               <Responsive className='hamburger-container' maxWidth={760}>
-                  <a onClick={toggleMobileNav}>
+                  <a href='#mobile-nav' onClick={toggleMobileNav}>
                     <Icon name='content'/>
                   </a>
               </Responsive>

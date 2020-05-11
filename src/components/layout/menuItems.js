@@ -1,6 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
-import { Menu } from 'semantic-ui-react'
 import './ratm-layout.scss'
 
 const MenuItems = () => {
