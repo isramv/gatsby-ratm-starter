@@ -32,7 +32,7 @@ const MenuItems = () => {
         return <Menu.Item
           key={`menu-${index}`}
           name={item.node.label}
-          href={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')}
+          href={(item.node.label === 'Homepage') ? '/' : item.node.url.replace('https://dev-ratm.pantheonsite.io', '')}
         />
       })}
       <Menu.Item href='/blog'>Blog</Menu.Item>
