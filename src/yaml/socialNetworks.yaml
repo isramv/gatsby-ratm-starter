@@ -8,3 +8,6 @@
 - social:
   url: https://www.linkedin.com/in/isramv
   icon: linkedin
+- social:
+  url: https://www.github.com/ChromaticHQ
+  icon: github
