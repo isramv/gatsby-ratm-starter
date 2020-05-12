@@ -1,6 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import ReactMarkdown from "react-markdown";
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Container } from "semantic-ui-react";
+import Layout from "../components/layout/ratm-layout";
 
 export const query = graphql`
 query ($id: String!) {
@@ -46,10 +49,14 @@ query ($id: String!) {
 export default ({data}) => {
   const pageData = data.drupal.nodeById
   return (
-    <>
-      <h1>{pageData.title}</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      <ReactMarkdown source={pageData.body.value}/>
-    </>
+    <Layout>
+      {/*<pre>{JSON.stringify(data, null, 2)}</pre>*/}
+      <Container>
+        <h1>{pageData.title}</h1>
+        <ReactMarkdown
+          source={pageData.body.value}
+          style={dark}/>
+      </Container>
+    </Layout>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout/ratm-layout";
-import {Container} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 export default () => {
   return(

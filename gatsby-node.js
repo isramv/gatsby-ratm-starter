@@ -29,7 +29,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   }
   drupal {
-    nodeQuery(limit: 100, filter: {conditions: {field: "type", operator: EQUAL, value: "article"}}) {
+    nodeQuery(limit: 200, filter: {conditions: {field: "type", operator: EQUAL, value: "article"}}) {
       count
       entities {
         entityUuid
@@ -68,9 +68,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     })
   })
-
   drupalPages = drupalPages.filter( page => _.has(page, 'entityId'))
-
   drupalPages.forEach(page => {
     actions.createPage({
       path: page.entityUrl.path,
