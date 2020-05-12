@@ -47,6 +47,17 @@ module.exports = {
         // Url to query from
         url: "https://dev-ratm.pantheonsite.io/graphql"
       }
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Arbitrary name for the remote schema Query type
+        typeName: "DrupalGraphQL",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "drupal",
+        // Url to query from
+        url: "https://chromatichq.lndo.site/graphql/"
+      }
     }
   ],
 }
