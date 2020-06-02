@@ -2,7 +2,6 @@
 path: "blog/laracon-2019"
 date: "2020-01-01"
 title: "Laracon & Toursim"
-featuredImage: "./images/featured-image.jpg"
 ---
 
 ## My first and only trip to NYC
