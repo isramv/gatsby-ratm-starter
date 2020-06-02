@@ -11,13 +11,6 @@ export const query = graphql`
         path
         date
         title
-        featuredImage {
-          childImageSharp {
-            fixed(width: 500) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
       }
       html
     }
@@ -28,15 +21,13 @@ const BlogTemplate = ({ data }) => {
   const { markdownRemark } = data
   const { title } = markdownRemark.frontmatter
   const frontmatter = data.markdownRemark.frontmatter
-  const featuredImage = (frontmatter.featuredImage !== null) ? <Img fixed={frontmatter.featuredImage.childImageSharp.fixed}/> : null
-
+  
   return (
     <Layout>
       <Container>
         <div className="blog-template">
           <h1>{title}</h1>
-          {featuredImage}
-          <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+           <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         </div>
       </Container>
     </Layout>
