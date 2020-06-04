@@ -14,12 +14,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 500,
-              quality: 90,
+              sizeByPixelDensity: true,
             }
           }
         ]
