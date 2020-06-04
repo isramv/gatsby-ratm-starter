@@ -20,7 +20,7 @@ const Social = () => {
     }
   }`)
   const socialIcons = social.allSocialNetworksYaml.edges.map(so =>
-    <ListItem><a href={so.node.url}><Icon name={so.node.icon}/></a></ListItem>)
+    <ListItem key={so.node.icon}><a href={so.node.url}><Icon name={so.node.icon}/></a></ListItem>)
   return (
     <div className='socialNetworks'>
       <List horizontal>

@@ -28,7 +28,7 @@ const MenuItems = () => {
   return (
     <>
       {menuItems.map((item, index) => {
-        return <li><Link
+        return <li key={`li-${index}`}><Link
           key={`menu-${index}`}
           to={item.node.url.replace('https://dev-ratm.pantheonsite.io', '')
           }>{item.node.label}</Link></li>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout/ratm-layout'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import { Container, List, ListItem } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 const Blog = () => {
   const query = useStaticQuery(graphql`{
@@ -19,15 +19,15 @@ const Blog = () => {
   }
   `)
   const posts = query.allMdx.edges
-  const links = posts.map(post => <ListItem><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></ListItem>)
+  const links = posts.map((post, index) => <li key={`li-${index}`}><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></li>)
   return (
     <Layout>
       <Container>
         <div className='blog-template'>
           <h1>Blog Posts</h1>
-          <List>
+          <ul>
             {links}
-          </List>
+          </ul>
         </div>
       </Container>
     </Layout>

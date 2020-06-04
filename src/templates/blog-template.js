@@ -23,8 +23,6 @@ export const query = graphql`
 
 const BlogTemplate = ({ data }) => {
   const { mdx } = data
-  console.log(data)
-
   return (
     <Layout>
       <Container>
