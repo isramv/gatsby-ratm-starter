@@ -17,7 +17,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   }
-  allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+  allMdx(sort: {fields: frontmatter___date, order: DESC}) {
     edges {
       node {
         id
@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   }
   }`)
-  const markdownPages = result.data.allMarkdownRemark.edges
+  const markdownPages = result.data.allMdx.edges
   const pages = result.data.wpcontent.pages.nodes
   pages.forEach(page => {
     actions.createPage({

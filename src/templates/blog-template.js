@@ -1,33 +1,38 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import { Link } from "gatsby"
 import { Container } from "semantic-ui-react"
 import Layout from "../components/layout/ratm-layout"
 
+const shortcodes = { Link }
+
 export const query = graphql`
   query($pathQuery: String!) {
-    markdownRemark(frontmatter: { path: { eq: $pathQuery } }) {
+    mdx(frontmatter: { path: { eq: $pathQuery } }) {
       frontmatter {
         path
         date
         title
       }
-      html
+      body
     }
   }
 `
 
 const BlogTemplate = ({ data }) => {
-  const { markdownRemark } = data
-  const { title } = markdownRemark.frontmatter
-  const frontmatter = data.markdownRemark.frontmatter
-  
+  const { mdx } = data
+  console.log(data)
+
   return (
     <Layout>
       <Container>
         <div className="blog-template">
-          <h1>{title}</h1>
-           <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+          <h1>{mdx.frontmatter.title}</h1>
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </MDXProvider>
         </div>
       </Container>
     </Layout>

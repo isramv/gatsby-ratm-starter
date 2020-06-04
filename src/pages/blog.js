@@ -5,7 +5,7 @@ import { Container, List, ListItem } from 'semantic-ui-react'
 
 const Blog = () => {
   const query = useStaticQuery(graphql`{
-    allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
+    allMdx(sort: {order: DESC, fields: frontmatter___date}) {
       edges {
         node {
           frontmatter {
@@ -18,7 +18,7 @@ const Blog = () => {
     }
   }
   `)
-  const posts = query.allMarkdownRemark.edges
+  const posts = query.allMdx.edges
   const links = posts.map(post => <ListItem><Link to={post.node.frontmatter.path}>{post.node.frontmatter.title}</Link></ListItem>)
   return (
     <Layout>
